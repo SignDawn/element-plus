@@ -47,9 +47,8 @@ import { inject } from 'vue'
 import { ElIcon } from '@element-plus/components/icon'
 import { FOCUS_TRAP_INJECTION_KEY } from '@element-plus/components/focus-trap'
 import { CloseComponents, composeRefs } from '@element-plus/utils'
+import { dialogInjectionKey } from '@element-plus/tokens'
 import { dialogContentProps, dialogContentEmits } from './dialog-content'
-
-import { elDialogInjectionKey } from './token'
 
 const { Close } = CloseComponents
 
@@ -57,7 +56,7 @@ defineOptions({ name: 'ElDialogContent' })
 defineProps(dialogContentProps)
 defineEmits(dialogContentEmits)
 
-const { dialogRef, headerRef, ns, style } = inject(elDialogInjectionKey)!
+const { dialogRef, headerRef, ns, style } = inject(dialogInjectionKey)!
 const { focusTrapRef, onKeydown } = inject(FOCUS_TRAP_INJECTION_KEY)!
 
 const composedDialogRef = composeRefs(focusTrapRef, dialogRef)
